@@ -1,0 +1,18 @@
+set(CMAKE_VERBOSE_MAKEFILE ON)  
+cmake_minimum_required(VERSION 3.10)
+project(VulkanProject)
+
+# Find Vulkan package
+find_package(Vulkan REQUIRED)
+
+# Create your executable
+add_executable(my_app main.cpp)
+
+target_include_directories(my_app PUBLIC "MYLIBRARIESDIRECTORY/glfw-3.4.bin.WIN64/include")
+
+target_include_directories(my_app PUBLIC "MYLIBRARIESDIRECTORY/glm")
+
+# Link against Vulkan
+target_link_libraries(my_app PUBLIC Vulkan::Vulkan "MYLIBRARIESDIRECTORY/glfw-3.4.bin.WIN64/lib-mingw-w64/libglfw3.a")
+
+# target_include_directories(my_app PUBLIC "C:/VulkanSDK/1.4.341.1/Include")
